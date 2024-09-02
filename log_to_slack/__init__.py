@@ -1,5 +1,7 @@
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+import certifi
+import ssl
 
 import traceback
 from logging import (
@@ -53,7 +55,7 @@ class NoStacktraceFormatter(Formatter):
             record.exc_text = saved_exc_text
 
 
-class SlackLogHandler(Handler):
+class SloggerHandler(Handler):
     def __init__(
         self,
         slack_token,
@@ -70,7 +72,8 @@ class SlackLogHandler(Handler):
         self.stack_trace = stack_trace
         self.fail_silent = fail_silent
 
-        self.client = WebClient(token=slack_token)
+        sslcontext = ssl.create_default_context(cafile=certifi.where())
+        self.client = WebClient(token=slack_token, ssl=sslcontext)
 
         self.username = username
         self.icon_url = icon_url
