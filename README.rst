@@ -1,4 +1,4 @@
-log_to_slack
+Slogger
 ===================
 
 .. image:: https://img.shields.io/pypi/v/log-to-slack.svg?style=flat-square
@@ -26,12 +26,12 @@ Installation
 
 .. code-block:: bash
 
-    pip install log-to-slack
+    pip install slogger
 
 Options
 -------
 
-api_key (required)
+slack_token (required)
 ~~~~~~~~~~~~~~~~~~
 
 Generate a key at https://api.slack.com/
@@ -39,7 +39,7 @@ Generate a key at https://api.slack.com/
 channel (required)
 ~~~~~~~~~~~~~~~~~~
 
-Set which channel id you want to post to, e.g. "C0XXXXXXXXX".
+Set which channel id you want to post to, e.g. "#devops".
 
 username
 ~~~~~~~~

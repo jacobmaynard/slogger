@@ -2,7 +2,7 @@ import logging
 import os
 from platform import python_version
 
-from log_to_slack import SlackLogHandler, NoStacktraceFormatter
+from slogger import SlackLogHandler, NoStacktraceFormatter
 
 SLACK_API_TOKEN = os.getenv("SLACK_API_TOKEN")
 SLACK_CHANNEL = os.getenv("SLACK_CHANNEL")
